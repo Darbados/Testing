@@ -1,7 +1,7 @@
 import random
 from Testing.Card_Deck.deck import Deck
 from Testing.Sorting.algorithms import SortAlgorithms
-
+from Testing.class_testing import Name
 
 def main():
     to_sort = [x for x in range(20)]
@@ -23,6 +23,8 @@ def main():
     print("Cards number in our deck is: {}".format(len(deck_obj.structure)))
     print("Random card from our deck: {}".format(deck_obj.get_card()))
 
+    my_name = Name("Pesho")
+    print("The length of {0}, is {1} chars.".format(my_name.name, my_name.length))
 
 if __name__ == '__main__':
     main()
