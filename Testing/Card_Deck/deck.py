@@ -6,14 +6,17 @@ from .card import Card
 
 
 class Deck(object):
-    def __init__(self, colors, cards, specials=None):
+    def __init__(self, colors=None, cards=None, specials=None):
         self.structure = set()
         self.colors = colors
         self.cards = cards
-        self.specials = specials if specials is not None else None
+        self.specials = specials
         self.random_card = None
 
     def build_deck(self):
+        assert self.colors is not None
+        assert self.cards is not None
+
         for card in self.cards:
             for color in self.colors:
                 self.structure.add(Card(color, card))

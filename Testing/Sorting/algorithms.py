@@ -7,21 +7,21 @@ class SortAlgorithms:
     def __init__(self, to_sort):
         self.to_sort = to_sort
 
-    def bubble_sort(self):
-        for x in range(len(self.to_sort), 0, -1):
+    def bubble_sort(self, array):
+        for x in range(len(array)-1, 0, -1):
             for y in range(x):
-                if self.to_sort[x] > self.to_sort[y]:
-                    temp = self.to_sort[x]
-                    self.to_sort[x] = self.to_sort[y]
-                    self.to_sort[y] = temp
+                if array[y] > array[y+1]:
+                    temp = array[y]
+                    array[y] = array[y+1]
+                    array[y+1] = temp
 
-    def selection_sort(self):
-        for x in range(len(self.to_sort)):
-            for y in range(x + 1, len(self.to_sort)):
-                if self.to_sort[y] < self.to_sort[x]:
-                    temp = self.to_sort[x]
-                    self.to_sort[x] = self.to_sort[y]
-                    self.to_sort[y] = temp
+    def selection_sort(self, array):
+        for x in range(len(array)):
+            for y in range(x + 1, len(array)):
+                if array[y] < array[x]:
+                    temp = array[x]
+                    array[x] = array[y]
+                    array[y] = temp
 
     def merge_sort(self, array):
         if len(array) > 1:

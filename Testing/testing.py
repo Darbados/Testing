@@ -1,7 +1,9 @@
 import random
+import asyncio
 from Testing.Card_Deck.deck import Deck
 from Testing.Sorting.algorithms import SortAlgorithms
 from Testing.class_testing import Name
+
 
 def main():
     to_sort = [x for x in range(20)]
@@ -10,7 +12,7 @@ def main():
     sorting = SortAlgorithms(to_sort)
 
     print("Before sorting the array:\n{}".format(to_sort))
-    sorting.merge_sort(sorting.to_sort)
+    sorting.bubble_sort(sorting.to_sort)
     print("After sorting the array:\n{}".format(to_sort))
 
     COLORS = ['D', 'H', 'C', 'S']
@@ -26,5 +28,14 @@ def main():
     my_name = Name("Pesho")
     print("The length of {0}, is {1} chars.".format(my_name.name, my_name.length))
 
+
+async def ticker(delay, to):
+    """Yield numbers from 0 to *to* every *delay* seconds."""
+    for i in range(to):
+        yield i
+        await asyncio.sleep(delay)
+
+
 if __name__ == '__main__':
     main()
+    # result = ticker(5, 10)
