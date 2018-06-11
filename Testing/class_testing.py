@@ -2,6 +2,7 @@
 Some class internal stuff testing
 """
 
+
 class Name(object):
     def __init__(self, name):
         self.name = name
