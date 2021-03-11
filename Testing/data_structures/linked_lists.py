@@ -8,7 +8,7 @@ class LinkedDevsList:
             print(current_node)
             current_node = current_node.next
 
-    def add_dev(self, name, sector, **kwargs):
+    def append_dev(self, name, sector, **kwargs):
         dev = Dev(name, sector, **kwargs)
         if self.head is None:
             self.head = dev
@@ -18,6 +18,13 @@ class LinkedDevsList:
         while current_dev.next:
             current_dev = current_dev.next
         current_dev.next = dev
+
+    def push_dev(self, name, sector, **kwargs):
+        dev = Dev(name, sector, **kwargs)
+
+        current_head = self.head
+        self.head = dev
+        self.head.next = current_head
 
 
 class Dev:
@@ -32,11 +39,12 @@ class Dev:
 
 
 linked_devs = LinkedDevsList()
-linked_devs.add_dev('Angel', 'Frontend', level='Lead')
-linked_devs.add_dev('George', 'Frontend', level='Junior')
-linked_devs.add_dev('Vlado', 'Backend', level='Regular')
-linked_devs.add_dev('Misho', 'Backend', level='Mid - Reg')
-linked_devs.add_dev('Kaloyan', 'Backend', level='Junior')
-linked_devs.add_dev('Pesho', 'Backend', level='Manager, Lead')
+linked_devs.append_dev('Angel', 'Frontend', level='Lead')
+linked_devs.append_dev('George', 'Frontend', level='Junior')
+linked_devs.append_dev('Vlado', 'Backend', level='Regular')
+linked_devs.append_dev('Misho', 'Backend', level='Mid - Reg')
+linked_devs.append_dev('Kaloyan', 'Backend', level='Junior')
+linked_devs.append_dev('Pesho', 'Backend', level='Manager, Lead')
 
 linked_devs.print_list()
+linked_devs.push_dev('Ivailo', 'Technology', level='CTO')
