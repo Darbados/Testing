@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from algo_questions.smallest_difference import get_smallest_difference
+from algo_questions.arrays.smallest_difference import get_smallest_difference
 
 
 class SmallestDifferenceTests(TestCase):
