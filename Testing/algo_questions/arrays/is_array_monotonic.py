@@ -7,6 +7,7 @@ def is_monotonic(array):
     if len(array) == 1:
         return True
 
+    # Hint: Should check current against previous, most likely the first as well
     increasing, decreasing = array[0] < array[1], not array[0] < array[1]
     for el in array[1:]:
         if increasing and el < array[0]:
