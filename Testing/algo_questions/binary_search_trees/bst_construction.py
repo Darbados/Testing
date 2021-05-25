@@ -7,8 +7,40 @@ class BST:
     def __str__(self):
         return f'BST node with value {self.value}'
 
-    def delete(self):
-        pass
+    def get_min_value(self):
+        current_node = self
+        while current_node.left is not None:
+            current_node = current_node.left
+        return current_node.value
+
+    def remove(self, value, parent=None):
+        if value < self.value:
+            if self.left is not None:
+                self.left.remove(value, self)
+        elif value > self.value:
+            if self.right is not None:
+                self.right.remove(value, self)
+        else:
+            if self.left is not None and self.right is not None:
+                self.value = self.right.get_min_value()
+                self.right.remove(self.value, self)
+            elif parent is None:
+                if self.left is not None:
+                    self.value = self.left.value
+                    self.right = self.left.rigt
+                    self.left = self.left.left
+                elif self.right is not None:
+                    self.value = self.right.value
+                    self.left = self.right.left
+                    self.right = self.right.right
+                else:
+                    # Single node, do not do anything
+                    pass
+            elif parent.left == self:
+                parent.left = self.left if self.left is not None else self.right
+            elif parent.right == self:
+                parent.right = self.right if self.right is not None else self.left
+        return self
 
     def insert(self, value):
         if value < self.value:
