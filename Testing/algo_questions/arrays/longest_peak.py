@@ -3,7 +3,7 @@ test_array = [1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]
 
 def get_longest_peak(array):
     longest_peak = 0
-    current_idx = 1
+    current_idx = 0
 
     while current_idx < len(array) - 1:
         if array[current_idx - 1] < array[current_idx] > array[current_idx + 1]:
