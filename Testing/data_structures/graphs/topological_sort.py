@@ -8,7 +8,7 @@ def topological_sort(graph):
     indegree_map = {}
 
     for i in range(graph.num_vertices):
-        indegree_map[i] = graph.get_indegree(i)
+        indegree_map[i] = graph.get_in_degree(i)
 
         # Queue all nodes which have no dependencies i.e.
         # no edges coming in
@@ -30,7 +30,7 @@ def topological_sort(graph):
     if len(sorted_list) != graph.num_vertices:
         raise ValueError("This graph has a cycle!")
 
-    print(sorted_list)
+    print('The topological sort of the graph: ', sorted_list)
 
 
 gr = AdjacencyMatrixGraph(9, directed=True)

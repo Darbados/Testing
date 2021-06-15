@@ -15,14 +15,47 @@ class Graph:
     def get_adjacent_vertices(self, v):
         raise NotImplementedError()
 
-    def get_indegree(self, v):
+    def get_in_degree(self, v):
         raise NotImplementedError()
 
     def get_edge_weight(self, v1, v2):
         raise NotImplementedError()
 
     def display(self):
-        raise NotImplementedError()
+        self.display_vertex_properties()
+
+        print('#############################')
+        print('        Display Graph        ')
+        for v1 in range(self.num_vertices):
+            for adjacent_vertex in self.get_adjacent_vertices(v1):
+                print(f'{v1} ---> {adjacent_vertex}')
+        print('      End Display Graph      ')
+        print('#############################')
+
+    def display_vertex_properties(self):
+        print('#############################')
+        print('  Display vertex relations   ')
+        print('#############################')
+
+        print('#############################')
+        for vertex in range(self.num_vertices):
+            print(f'Vertex {vertex} adjacent vertices: {self.get_adjacent_vertices(vertex)}')
+        print('#############################')
+
+        print('#############################')
+        for vertex in range(self.num_vertices):
+            print(f'Vertex {vertex} in degree: {self.get_in_degree(vertex)}')
+        print('#############################')
+
+        print('#############################')
+        for vertex in range(self.num_vertices):
+            for adjacent_vertex in self.get_adjacent_vertices(vertex):
+                print('Vertex {vertex} edge weight to {adjacent_vertex}: {edge_weight}'.format(
+                    vertex=vertex,
+                    adjacent_vertex=adjacent_vertex,
+                    edge_weight=self.get_edge_weight(vertex, adjacent_vertex),
+                ))
+        print('#############################')
 
 
 """
