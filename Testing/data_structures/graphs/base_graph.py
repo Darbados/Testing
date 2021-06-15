@@ -70,11 +70,11 @@ class Node:
         self.vertex_id = vertex_id
         self.adjacency_set = set()
 
-    def add_edge(self, v):
+    def add_edge(self, v, weight=1):
         if self.vertex_id == v:
             raise ValueError(f'The vertex {v} cannot be adjacent to itself')
 
-        self.adjacency_set.add(v)
+        self.adjacency_set.add((v, weight))
 
     def get_adjacent_vertices(self):
-        return sorted(self.adjacency_set)
+        return sorted([v[0] for v in self.adjacency_set])

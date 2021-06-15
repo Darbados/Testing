@@ -36,4 +36,4 @@ g.add_edge(6, 3)
 g.add_edge(3, 4)
 g.add_edge(6, 8)
 
-breadth_first(g, 8)
+breadth_first(g, 1)
