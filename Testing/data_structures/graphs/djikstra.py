@@ -57,16 +57,17 @@ def shortest_path(graph, start, destination):
 
 # g = AdjacencySetGraph(8, directed=False)
 g = AdjacencyMatrixGraph(9, directed=False)
-g.add_edge(0, 1, weight=3)
-g.add_edge(0, 3, weight=2)
-g.add_edge(0, 8, weight=4)
-g.add_edge(1, 7, weight=4)
-g.add_edge(7, 2, weight=2)
-g.add_edge(2, 3, weight=6)
-g.add_edge(2, 5, weight=1)
-g.add_edge(5, 6, weight=8)
-g.add_edge(3, 4, weight=1)
-g.add_edge(4, 8, weight=8)
+g.add_edge(0, 1, weight=15)
+g.add_edge(1, 7, weight=5)
+g.add_edge(7, 8, weight=15)
+g.add_edge(1, 8, weight=25)
+g.add_edge(1, 4, weight=10)
+g.add_edge(4, 6, weight=5)
+g.add_edge(4, 5, weight=10)
+g.add_edge(0, 2, weight=25)
+g.add_edge(2, 3, weight=10)
+g.add_edge(2, 4, weight=20)
+
 
 # g.display()
 
