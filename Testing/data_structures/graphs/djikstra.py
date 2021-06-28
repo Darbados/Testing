@@ -1,6 +1,6 @@
 from data_structures.graphs.adjacency_matrix_graph import AdjacencyMatrixGraph
 from data_structures.graphs.adjance_set_graph import AdjacencySetGraph
-from data_structures.graphs.priority_dict import priority_dict
+from data_structures.graphs.prioritydict import PriorityDict
 
 
 def build_distance_table(graph, start):
@@ -17,7 +17,7 @@ def build_distance_table(graph, start):
     # Holds mapping of vertex id to distance from source
     # Access the highest priority (lowest distance) item
     # first
-    priority_queue = priority_dict()
+    priority_queue = PriorityDict()
     priority_queue[start] = 0
 
     while len(priority_queue.keys()):

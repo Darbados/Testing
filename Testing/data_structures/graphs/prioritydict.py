@@ -27,7 +27,8 @@
 
 from heapq import heapify, heappush, heappop
 
-class priority_dict(dict):
+
+class PriorityDict(dict):
     """Dictionary that can be used as a priority queue.
     Keys of the dictionary are items to be put into the queue, and values
     are their respective priorities. All dictionary methods work as expected.
@@ -40,7 +41,7 @@ class priority_dict(dict):
     """
     
     def __init__(self, *args, **kwargs):
-        super(priority_dict, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._rebuild_heap()
 
     def _rebuild_heap(self):
@@ -75,7 +76,7 @@ class priority_dict(dict):
         # We are not going to remove the previous value from the heap,
         # since this would have a cost O(n).
         
-        super(priority_dict, self).__setitem__(key, val)
+        super().__setitem__(key, val)
         
         if len(self._heap) < 2 * len(self):
             heappush(self._heap, (val, key))
@@ -95,7 +96,7 @@ class priority_dict(dict):
         # http://mail.python.org/pipermail/python-ideas/2007-May/000744.html
         # We just rebuild the heap from scratch after passing to super.
         
-        super(priority_dict, self).update(*args, **kwargs)
+        super().update(*args, **kwargs)
         self._rebuild_heap()
 
     def sorted_iter(self):
